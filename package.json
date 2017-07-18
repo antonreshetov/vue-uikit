@@ -1,0 +1,41 @@
+{
+  "name": "vue-uikit",
+  "version": "0.1.0",
+  "description": "A collection of Vue components built on top of the UIkit framework",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonreshetov/vue-uikit.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "uikit",
+    "uikit3",
+    "components"
+  ],
+  "author": "Anton Reshetov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonreshetov/vue-uikit/issues"
+  },
+  "homepage": "https://github.com/antonreshetov/vue-uikit#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-latest": "^6.24.1",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "vue": "^2.4.1",
+    "vue-loader": "^12.2.2",
+    "vue-template-compiler": "^2.4.1",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}

@@ -1,5 +1,7 @@
-const components = [
+import VuAlert from './package/alert/Alert.vue'
 
+const components = [
+    VuAlert
 ]
 
 const VueUIkit = {

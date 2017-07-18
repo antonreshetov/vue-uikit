@@ -1,3 +1,5 @@
+import './bootstrap'
+
 import Vue from 'vue'
 import VueUIkit from '../src/index'
 

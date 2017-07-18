@@ -1,5 +1,9 @@
 {
-    "extends": "standard",
+    "extends": [
+        "standard",
+        "plugin:vue/recommended"
+    ],
+
     "globals": {},
     "rules": {
         "indent": ["error", 4]

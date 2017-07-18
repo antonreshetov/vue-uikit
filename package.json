@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "lint": "eslint src build components",
+    "lint:fix": "eslint src build components --fix",
     "make": "node ./build/makeComponent.js"
   },
   "repository": {
@@ -33,6 +35,8 @@
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "eslint": "^4.2.0",
+    "eslint-plugin-vue": "^3.5.1",
+    "eslint-plugin-vue-libs": "^1.2.0",
     "file-loader": "^0.11.2",
     "file-save": "^0.2.0",
     "node-sass": "^4.5.3",

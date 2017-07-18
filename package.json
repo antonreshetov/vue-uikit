@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "lint": "eslint src build components",
+    "lint": "eslint src build examples",
     "lint:fix": "eslint src build components --fix",
     "make": "node ./build/makeComponent.js"
   },

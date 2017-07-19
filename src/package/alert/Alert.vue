@@ -20,7 +20,7 @@ export default {
                 primary: 'uk-alert-primary',
                 success: 'uk-alert-success',
                 warning: 'uk-alert-warning',
-                alert: 'uk-alert-alert'
+                danger: 'uk-alert-danger'
             }
         }
     },

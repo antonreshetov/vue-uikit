@@ -29,7 +29,7 @@ export default {
                 success: 'uk-alert-success',
                 warning: 'uk-alert-warning',
                 danger: 'uk-alert-danger'
-            },
+            }
         }
     },
 

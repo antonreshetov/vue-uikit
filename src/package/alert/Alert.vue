@@ -1,6 +1,6 @@
 <template>
     <div uk-alert :class="currentClass">
-        <a v-if="closeBtn" class="uk-alert-close" uk-close></a>
+        <a v-if="closeBtn" class="uk-alert-close" uk-close @click="close"></a>
         <slot></slot>
     </div>
 </template>
@@ -35,6 +35,10 @@ export default {
             keys.forEach(key => {
                 if (key === this.type) this.currentClass = this.acceptedClass[key]
             })
+        },
+        close () {
+            this.$destroy()
+            this.$el.remove()
         }
     }
 }

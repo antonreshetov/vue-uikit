@@ -1,7 +1,7 @@
 <template>
     <div uk-alert :class="currentClass">
         <a v-if="closeBtn" class="uk-alert-close" uk-close @click="close"></a>
-        <slot></slot>
+        <slot>{{content}}</slot>
     </div>
 </template>
 <script>
@@ -18,7 +18,12 @@ export default {
         duration: {
             type: Number,
             default: 150
-        }
+        },
+        programmatic: {
+            type: Boolean,
+            default: false
+        },
+        content: String
     },
 
     data () {
@@ -50,6 +55,10 @@ export default {
                 this.$el.remove()
             }, this.duration)
         }
+    },
+
+    beforeMount () {
+        if (this.programmatic) document.body.appendChild(this.$el)
     }
 }
 </script>

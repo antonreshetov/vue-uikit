@@ -10,7 +10,15 @@ export default {
 
     props: {
         closeBtn: Boolean,
-        type: String
+        type: String,
+        animation: {
+            type: Boolean,
+            default: true
+        },
+        duration: {
+            type: Number,
+            default: 150
+        }
     },
 
     data () {
@@ -21,7 +29,7 @@ export default {
                 success: 'uk-alert-success',
                 warning: 'uk-alert-warning',
                 danger: 'uk-alert-danger'
-            }
+            },
         }
     },
 
@@ -37,8 +45,10 @@ export default {
             })
         },
         close () {
-            this.$destroy()
-            this.$el.remove()
+            setTimeout(() => {
+                this.$destroy()
+                this.$el.remove()
+            }, this.duration)
         }
     }
 }

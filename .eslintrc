@@ -4,7 +4,9 @@
         "plugin:vue/recommended"
     ],
 
-    "globals": {},
+    "globals": {
+        "axios": true
+    },
     "rules": {
         "indent": ["error", 4]
     }

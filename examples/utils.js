@@ -42,7 +42,7 @@ export function parse (markdown, cb) {
     renderer.code = (code, lang, escaped) => lang === 'example' ? example(code) : '<div class="uk-margin-medium">' + base.code(code, lang, escaped) + '</div>'
     renderer.hr = () => `<hr class="uk-margin-large">`
     renderer.table = (header, body) => `<div class="uk-overflow-auto"><table class="uk-table uk-table-divider"><thead>${header}</thead><tbody>${body}</tbody></table></div>`
-    renderer.heading = (text, level) => `<h${level} id="${slug(text)}" class="uk-h${level > 1 ? level + 1 : level} tm-heading-fragment"><a href="#${slug(text)}">${text}</a></h${level}>`
+    renderer.heading = (text, level) => `<h${level} id="${slug(text)}" class="tm-heading-fragment"><a href="#${slug(text)}">${text}</a></h${level}>`
 
     return marked(markdown, { renderer })
 }

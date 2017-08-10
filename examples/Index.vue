@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="header">
+        <div class="header" uk-sticky>
             <div class="logo">Vue<span>UIkit</span></div>
         </div>
         <div class="sidebar">
@@ -29,6 +29,7 @@ export default {
 </script>
 <style lang="scss">
 @import "../node_modules/uikit/dist/css/uikit";
+@import "./styles/theme";
 @import "../node_modules/highlight.js/styles/atom-one-light.css";
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
@@ -62,15 +63,5 @@ export default {
 .content {
     margin-top: 80px;
     max-width: 650px;
-}
-
-pre {
-    padding: 0;
-    border: none;
-}
-
-.hljs {
-    font-family: 'Fira Mono', monospace;
-    padding: 1em;
 }
 </style>

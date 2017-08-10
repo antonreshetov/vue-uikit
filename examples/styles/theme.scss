@@ -1,0 +1,41 @@
+pre {
+    padding: 0;
+    border: none;
+}
+
+.hljs {
+    font-family: 'Fira Mono', monospace;
+    padding: 1em;
+}
+
+h1 {
+    font-size: 36px;
+}
+h2 {
+    font-size: 26px;
+
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 300!important;
+    >a {
+        color: inherit;
+        &:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+h2,
+h3 {
+    position: relative;
+    &::before {
+        content: '#';
+        position: absolute;
+        left: -25px;
+        color: #ccc;
+    }
+}

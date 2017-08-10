@@ -15,12 +15,15 @@ export function parse (markdown, cb) {
     /* eslint-disable no-useless-escape */
     const example = code => {
         const id = guid()
-        const component = code.match(/<vu(.*?)<\/vu(.*?>)/g)
+        let components = code.match(/<vu(.*?)<\/vu(.*?>)/g)
+            .join()
+            .replace(/,/, '')
+
         let data = code.match(/return\s+([^\}]+.)/)
         if (data) data = JSON.parse(data[1])
 
         const vm = new Vue({
-            template: `<div>${component}</div>`,
+            template: `<div>${components}</div>`,
             data
         }).$mount()
 

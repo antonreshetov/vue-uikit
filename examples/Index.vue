@@ -29,6 +29,8 @@ export default {
 </script>
 <style lang="scss">
 @import "../node_modules/uikit/dist/css/uikit";
+@import "../node_modules/highlight.js/styles/atom-one-light.css";
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
 .header {
     height: 80px;
@@ -60,5 +62,15 @@ export default {
 .content {
     margin-top: 80px;
     max-width: 650px;
+}
+
+pre {
+    padding: 0;
+    border: none;
+}
+
+.hljs {
+    font-family: 'Fira Mono', monospace;
+    padding: 1em;
 }
 </style>

@@ -41,7 +41,7 @@ export default {
         color: #fff;
         font-weight: 100;
         position: relative;
-        padding: 0 20px;
+        padding-left: 40px;
         top: 20px;
         > span {
             font-weight: 300;

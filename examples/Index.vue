@@ -6,9 +6,8 @@
         <div class="sidebar">
              <ul class="uk-nav uk-nav-default">
                 <li class="uk-nav-header">Components</li>
-                <li class="uk-active"><a href="#">Item</a></li>
-                <li><a href="#">Item</a></li>
-                <li><a href="#">Item</a></li>
+                <router-link to="/alert" tag="li" exact><a>Alert</a></router-link>
+                <router-link to="/alert2" tag="li" exact><a>Alert 2</a></router-link>
             </ul>
         </div>
         <div class="content uk-container uk-container-small uk-position-relative">
@@ -21,13 +20,25 @@ import { parse } from './utils'
 
 export default {
     created () {
-        axios.get('examples/docs/alert.md').then(res => {
-            let html
-            let vm
-            ;[html, vm] = parse(res.data)
-            document.getElementById('html').innerHTML = html
-            document.getElementById('demo').appendChild(vm.$el)
-        })
+        this.buildPage()
+    },
+
+    watch: {
+        $route () {
+            this.buildPage()
+        }
+    },
+
+    methods: {
+        buildPage () {
+            axios.get(`/examples/docs/${this.$route.params.page}.md`).then(res => {
+                let html
+                let vm
+                ;[html, vm] = parse(res.data)
+                document.getElementById('html').innerHTML = html
+                document.getElementById('demo').appendChild(vm.$el)
+            })
+        }
     }
 }
 </script>

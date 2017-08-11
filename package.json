@@ -50,6 +50,7 @@
     "uppercamelcase": "^3.0.0",
     "vue": "^2.4.1",
     "vue-loader": "^12.2.2",
+    "vue-router": "^2.7.0",
     "vue-template-compiler": "^2.4.1",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"

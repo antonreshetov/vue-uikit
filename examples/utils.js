@@ -1,16 +1,19 @@
 import Vue from 'vue'
+import VueUIkit from '../src/index'
 import { escape } from 'he'
 import slug from 'slug'
 import marked from 'marked'
 
+Vue.use(VueUIkit)
+
 const guid = () => {
     return Math.random().toString(36).substring(2, 15)
 }
-
 // Inspired by https://github.com/uikit/uikit-site
 export function parse (markdown, cb) {
     const renderer = new marked.Renderer({ langPrefix: 'lang-' })
     const base = new marked.Renderer({ langPrefix: 'lang-' })
+    let vm
 
     /* eslint-disable no-useless-escape */
     const example = code => {
@@ -19,7 +22,7 @@ export function parse (markdown, cb) {
         let data = code.match(/return\s+([^\}]+.)/)
         if (data) data = JSON.parse(data[1])
 
-        const vm = new Vue({
+        vm = new Vue({
             template: `<div>${template}</div>`,
             data
         }).$mount()
@@ -30,7 +33,7 @@ export function parse (markdown, cb) {
                         <li><a href="#">Markup</a></li>
                     </ul>
                     <ul class="uk-switcher uk-margin">
-                        <li><span class="code">${vm.$el.innerHTML}</span</li>
+                        <li><span class="code"><span id="demo"></span></span</li>
                         <li><pre><code id="${id}" class="lang-html">${escape(code)}</code></pre></li>
                     </ul>
                 </div>`
@@ -44,5 +47,5 @@ export function parse (markdown, cb) {
     renderer.table = (header, body) => `<div class="uk-overflow-auto"><table class="uk-table uk-table-divider"><thead>${header}</thead><tbody>${body}</tbody></table></div>`
     renderer.heading = (text, level) => `<h${level} id="${slug(text)}" class="tm-heading-fragment"><a href="#${slug(text)}">${text}</a></h${level}>`
 
-    return marked(markdown, { renderer })
+    return [marked(markdown, { renderer }), vm]
 }

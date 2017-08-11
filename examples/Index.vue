@@ -22,7 +22,11 @@ import { parse } from './utils'
 export default {
     created () {
         axios.get('examples/docs/alert.md').then(res => {
-            document.getElementById('html').innerHTML = parse(res.data)
+            let html
+            let vm
+            ;[html, vm] = parse(res.data)
+            document.getElementById('html').innerHTML = html
+            document.getElementById('demo').appendChild(vm.$el)
         })
     }
 }

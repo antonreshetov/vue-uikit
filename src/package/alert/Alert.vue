@@ -11,6 +11,7 @@ export default {
     props: {
         closeBtn: Boolean,
         type: String,
+        el: String,
         animation: {
             type: Boolean,
             default: true
@@ -58,7 +59,7 @@ export default {
     },
 
     beforeMount () {
-        if (this.programmatic) document.body.appendChild(this.$el)
+        if (this.programmatic) document.querySelector(this.el).appendChild(this.$el)
     }
 }
 </script>

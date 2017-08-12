@@ -37,6 +37,9 @@ export default {
                 ;[html, vm] = parse(res.data)
                 document.getElementById('html').innerHTML = html
                 document.getElementById('demo').appendChild(vm.$el)
+                document.querySelectorAll('pre code').forEach(block => {
+                    hljs.highlightBlock(block)
+                })
             })
         }
     }

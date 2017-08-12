@@ -5,7 +5,8 @@
     ],
 
     "globals": {
-        "axios": true
+        "axios": true,
+        "hljs": true
     },
     "rules": {
         "indent": ["error", 4]

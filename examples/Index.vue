@@ -6,8 +6,13 @@
         <div class="sidebar">
              <ul class="uk-nav uk-nav-default">
                 <li class="uk-nav-header">Components</li>
-                <router-link to="/alert" tag="li" exact><a>Alert</a></router-link>
-                <router-link to="/alert2" tag="li" exact><a>Alert 2</a></router-link>
+                <router-link
+                    v-for="item in components"
+                    :to="item.page"
+                    :key="item.page"
+                    tag="li">
+                    <a>{{item.name}}</a>
+                </router-link>
             </ul>
         </div>
         <div class="content uk-container uk-container-small uk-position-relative">
@@ -17,8 +22,21 @@
 </template>
 <script>
 import { parse } from './utils'
+import navigation from './navigation.json'
+
+const components = Object.keys(navigation['Components']).map(component => {
+    return {
+        name: component,
+        page: navigation['Components'][component]
+    }
+})
 
 export default {
+    data () {
+        return {
+            components
+        }
+    },
     created () {
         this.buildPage()
     },

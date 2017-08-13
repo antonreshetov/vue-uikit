@@ -19,8 +19,8 @@ export function parse (markdown, cb) {
     const example = code => {
         const id = guid()
         let template = code.match(/<template>(.|\n)*<\/template>/g)
-        let data = code.match(/return\s+([^\}]+.)/)
-        if (data) data = JSON.parse(data[1])
+        let data = code.match(/return\s+([^\}]+.)/)[1].replace(/(\w+[0-9]?)(?=:)/, '"$1"')
+        if (data) data = JSON.parse(data)
 
         vm = new Vue({
             template: `<div>${template}</div>`,

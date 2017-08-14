@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueUIkit from '../src/index'
 import { escape } from 'he'
-import slug from 'slug'
 import marked from 'marked'
 
 Vue.use(VueUIkit)
@@ -10,6 +9,9 @@ const guid = () => {
     return Math.random().toString(36).substring(2, 15)
 }
 // Inspired by https://github.com/uikit/uikit-site
+const sluggify = (text) => {
+    return text.toLowerCase().trim().replace(/(&amp;| & )/g, '-and-').replace(/&(.+?);/g, '').replace(/[\s\W-]+/g, '-');
+}
 export function parse (markdown, cb) {
     const renderer = new marked.Renderer({ langPrefix: 'lang-' })
     const base = new marked.Renderer({ langPrefix: 'lang-' })
@@ -45,7 +47,7 @@ export function parse (markdown, cb) {
     renderer.code = (code, lang, escaped) => lang === 'example' ? example(code) : '<div class="uk-margin-medium">' + base.code(code, lang, escaped) + '</div>'
     renderer.hr = () => `<hr class="uk-margin-large">`
     renderer.table = (header, body) => `<div class="uk-overflow-auto"><table class="uk-table uk-table-divider"><thead>${header}</thead><tbody>${body}</tbody></table></div>`
-    renderer.heading = (text, level) => `<h${level} id="${slug(text)}" class="tm-heading-fragment"><a href="#${slug(text)}">${text}</a></h${level}>`
+    renderer.heading = (text, level) => `<h${level} id="${sluggify(text)}" class="tm-heading-fragment"><a href="#${sluggify(text)}">${text}</a></h${level}>`
 
     return [marked(markdown, { renderer }), vm]
 }

@@ -49,7 +49,7 @@ export default {
 
     methods: {
         buildPage () {
-            axios.get(`/examples/docs/${this.$route.params.page}.md`).then(res => {
+            axios.get(`/docs/${this.$route.params.page}.md`).then(res => {
                 let html
                 let vm
                 ;[html, vm] = parse(res.data)

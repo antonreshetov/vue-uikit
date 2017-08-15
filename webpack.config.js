@@ -5,13 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
-        app: './examples/app.js',
-        vendor: './examples/bootstrap.js'
+        app: './demo/app.js',
+        vendor: './demo/bootstrap.js'
     },
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/',
-        filename: 'example.build.js'
+        filename: 'app.build.js'
     },
     module: {
         rules: [
@@ -95,6 +95,5 @@ if (process.env.NODE_ENV === 'production') {
             filename: 'assets/css/app.css',
             allChunks: true
         })
-
     ])
 }

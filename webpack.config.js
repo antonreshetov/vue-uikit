@@ -1,11 +1,16 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-    entry: './examples/app.js',
+    entry: {
+        app: './examples/app.js',
+        vendor: './examples/bootstrap.js'
+    },
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist/',
+        publicPath: '/',
         filename: 'example.build.js'
     },
     module: {
@@ -15,13 +20,11 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-                        // the "scss" and "sass" values for the lang attribute to the right configs here.
-                        // other preprocessors should work out of the box, no loader config like this necessary.
-                        'scss': 'vue-style-loader!css-loader!sass-loader',
-                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        'scss': ExtractTextPlugin.extract({
+                            use: 'css-loader!sass-loader',
+                            fallback: 'vue-style-loader'
+                        })
                     }
-                    // other vue-loader options go here
                 }
             },
             {
@@ -50,7 +53,24 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map'
+    devtool: '#eval-source-map',
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            filename: 'index.html',
+            hash: true
+        }),
+        new ExtractTextPlugin({
+            filename: 'assets/css/app.css',
+            disable: true,
+            allChunks: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'assets/js/vendor.js',
+            minChunks: 2
+        })
+    ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -70,6 +90,11 @@ if (process.env.NODE_ENV === 'production') {
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
+        }),
+        new ExtractTextPlugin({
+            filename: 'assets/css/app.css',
+            allChunks: true
         })
+
     ])
 }

@@ -3,7 +3,7 @@
         <div class="main">
             <div class="logo-container">
                 <div class="logo">Vue<span>UIkit</span>
-                <span class="uk-label version">beta 0.1.0</span>
+                    <span class="uk-label version">pre-alpha {{version}}</span>
                 </div>
                 <div class="desc">A collection of Vue components<br>built on top of the <a href="https://getuikit.com/">UIkit framework</a></div>
                 <router-link to="/alert" class="pill white">Get started</router-link>
@@ -12,6 +12,16 @@
         </div>
     </div>
 </template>
+<script>
+import { version } from '../../package.json'
+export default {
+    data () {
+        return {
+            version
+        }
+    }
+}
+</script>
 <style lang="scss" scoped>
 .welcome {
     background-color: #1e88f0;

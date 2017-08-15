@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from './Index.vue'
+import Page from './components/Page.vue'
+import Welcome from './components/Welcome.vue'
 
 Vue.use(VueRouter)
 
@@ -10,8 +11,12 @@ const router = new VueRouter({
     linkActiveClass: 'uk-active',
     routes: [
         {
+            path: '/',
+            component: Welcome
+        },
+        {
             path: '/:page',
-            component: Index
+            component: Page
         }
     ]
 })

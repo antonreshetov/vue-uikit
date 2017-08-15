@@ -5,7 +5,7 @@
                 <div class="logo">Vue<span>UIkit</span>
                 <span class="uk-label version">beta 0.1.0</span>
                 </div>
-                <div class="desc">A collection of Vue components<br>built on top of the UIkit framework</div>
+                <div class="desc">A collection of Vue components<br>built on top of the <a href="https://getuikit.com/">UIkit framework</a></div>
                 <router-link to="/alert" class="pill white">Get started</router-link>
                 <a href="https://github.com/antonreshetov/vue-uikit" class="pill">GitHub</a>
             </div>
@@ -44,6 +44,16 @@
     font-weight: 100;
     font-size: 18px;
     margin-bottom: 20px;
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px dashed #fff;
+      &:hover {
+        text-decoration: none;
+        color: rgba(255, 255, 255, .5);
+        border-bottom: 1px dashed rgba(255, 255, 255, .5);
+      }
+    }
 }
 
 .pill {

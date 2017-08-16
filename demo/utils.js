@@ -15,6 +15,7 @@ const sluggify = (text) => {
 export function parse (markdown, cb) {
     const renderer = new marked.Renderer({ langPrefix: 'lang-' })
     const base = new marked.Renderer({ langPrefix: 'lang-' })
+    const vms = []
     let vm
 
     /* eslint-disable no-useless-escape */
@@ -29,13 +30,15 @@ export function parse (markdown, cb) {
             data
         }).$mount()
 
+        vms.push(vm)
+
         return `<div class="uk-position-relative uk-margin-medium">
                     <ul uk-tab>
                         <li><a href="#">Preview</a></li>
                         <li><a href="#">Markup</a></li>
                     </ul>
                     <ul class="uk-switcher uk-margin">
-                        <li><span class="code"><span id="demo"></span></span</li>
+                        <li><span class="code"><span id="demo-${vms.length - 1}"></span></span</li>
                         <li><pre><code id="${id}" class="lang-html">${escape(code)}</code></pre></li>
                     </ul>
                 </div>`
@@ -49,5 +52,5 @@ export function parse (markdown, cb) {
     renderer.table = (header, body) => `<div class="uk-overflow-auto"><table class="uk-table uk-table-divider"><thead>${header}</thead><tbody>${body}</tbody></table></div>`
     renderer.heading = (text, level) => `<h${level} id="${sluggify(text)}" class="tm-heading-fragment"><a href="#${sluggify(text)}">${text}</a></h${level}>`
 
-    return [marked(markdown, { renderer }), vm]
+    return [marked(markdown, { renderer }), vms]
 }

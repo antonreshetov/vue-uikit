@@ -51,10 +51,13 @@ export default {
         buildPage () {
             axios.get(`../docs/${this.$route.params.page}.md`).then(res => {
                 let html
-                let vm
-                ;[html, vm] = parse(res.data)
+                let vms
+                ;[html, vms] = parse(res.data)
+
                 document.getElementById('html').innerHTML = html
-                document.getElementById('demo').appendChild(vm.$el)
+                for (let i = 0; i < vms.length; i++) {
+                    document.getElementById(`demo-${i}`).appendChild(vms[i].$el)
+                }
                 document.querySelectorAll('pre code').forEach(block => {
                     hljs.highlightBlock(block)
                 })

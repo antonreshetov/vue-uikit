@@ -53,6 +53,7 @@ export default {
             setTimeout(() => {
                 this.$destroy()
                 this.$el.remove()
+                this.$emit('close')
             }, this.duration)
         }
     },

@@ -28,3 +28,27 @@ To render this component, add the tag:
     }
 </script>
 ```
+## Programatic usage
+
+To use, call the method `$alert` at the instance and pass the necessary parameters
+
+```js
+    vm.$alert.open(params)
+```
+
+```example
+<template>
+    <button class="uk-button uk-button-default"
+        @click="$alert.open({content: 'New alert', closeBtn: true, el: '#alert-mount'})">Add alert
+    </button>
+    <br><br>
+    <div id="alert-mount"></div>
+</template>
+<script>
+    export default {
+        data () {
+            return {}
+        }
+    }
+</script>
+```

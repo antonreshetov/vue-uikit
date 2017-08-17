@@ -1,7 +1,11 @@
 <template>
     <div>
         <div class="header" uk-sticky>
-            <div class="logo">Vue<span>UIkit</span></div>
+            <div class="logo">
+                <router-link to="/">
+                    Vue<span>UIkit</span>
+                </router-link>
+            </div>
         </div>
         <div class="sidebar">
              <ul class="uk-nav uk-nav-default">
@@ -71,12 +75,17 @@ export default {
     height: 80px;
     background: linear-gradient(to right, #1e88f0, #27a4f5);
     .logo {
-        font-size: 24px;
-        color: #fff;
-        font-weight: 100;
-        position: relative;
-        padding-left: 40px;
-        top: 20px;
+        a {
+            font-size: 24px;
+            color: #fff;
+            font-weight: 100;
+            position: relative;
+            padding-left: 40px;
+            top: 20px;
+            &:hover {
+                text-decoration: none;
+            }
+        }
         > span {
             font-weight: 300;
         }

@@ -45,8 +45,7 @@ export default {
 
     methods: {
         checkType () {
-            let keys = Object.keys(this.acceptedClass)
-            keys.forEach(key => {
+            Object.keys(this.acceptedClass).forEach(key => {
                 if (key === this.type) this.currentClass = this.acceptedClass[key]
             })
         },

@@ -9,7 +9,7 @@ To render this component, add the tag and pass the necessary properties
 ```html
 <vu-alert></vu-alert>
 ```
- 
+
 ```example
 <template>
     <vu-alert :closeBtn="true">{{msg}}</vu-alert>
@@ -17,6 +17,10 @@ To render this component, add the tag and pass the necessary properties
     <vu-alert :closeBtn="true" type="success">Success</vu-alert>
     <vu-alert :closeBtn="true" type="warning">Warning</vu-alert>
     <vu-alert :closeBtn="true" type="danger">Danger</vu-alert>
+    <vu-alert :closeBtn="true">
+        <div class="uk-text-lead">Title</div>
+        <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+    </vu-alert>
 </template>
 <script>
     export default {

@@ -4,7 +4,7 @@ Display success, warning and error messages.
 
 ## Basic usage
 
-To render this component, add the tag:
+To render this component, add the tag and pass the necessary properties
 
 ```html
 <vu-alert></vu-alert>
@@ -28,12 +28,12 @@ To render this component, add the tag:
     }
 </script>
 ```
-## Programatic usage
+## Programmatic usage
 
 To use, call the method `$alert` at the instance and pass the necessary parameters
 
 ```js
-    vm.$alert.open(params)
+vm.$alert.open(params)
 ```
 
 ```example

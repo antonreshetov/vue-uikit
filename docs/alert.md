@@ -12,7 +12,7 @@ To render this component, add the tag and pass the necessary properties
 
 ```example
 <template>
-    <vu-alert :closeBtn="true">{{msg}}</vu-alert>
+    <vu-alert :closeBtn="true" :animation="false">{{msg}}</vu-alert>
     <vu-alert :closeBtn="true" type="primary">Primary</vu-alert>
     <vu-alert :closeBtn="true" type="success">Success</vu-alert>
     <vu-alert :closeBtn="true" type="warning">Warning</vu-alert>
@@ -56,3 +56,10 @@ vm.$alert.open(params)
     }
 </script>
 ```
+
+## Attributes
+
+|Attribute|Description|Type|Accepted Values|Default|
+|---|---|---|---|---|
+|type|Type of alert|`string`|primary/success/warning/danger|-|
+|closeBtn|Show close button|`boolean`|-|-|

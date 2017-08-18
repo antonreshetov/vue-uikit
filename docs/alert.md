@@ -13,7 +13,7 @@ To render this component, add the tag and pass the necessary properties
 ```example
 <template>
     <vu-alert :closeBtn="true" :animation="false">{{msg}}</vu-alert>
-    <vu-alert :closeBtn="true" type="primary">Primary</vu-alert>
+    <vu-alert :closeBtn="true" :duration="500" type="primary">Primary</vu-alert>
     <vu-alert :closeBtn="true" type="success">Success</vu-alert>
     <vu-alert :closeBtn="true" type="warning">Warning</vu-alert>
     <vu-alert :closeBtn="true" type="danger">Danger</vu-alert>
@@ -61,5 +61,9 @@ vm.$alert.open(params)
 
 |Attribute|Description|Type|Accepted Values|Default|
 |---|---|---|---|---|
-|type|Type of alert|`string`|primary/success/warning/danger|-|
-|closeBtn|Show close button|`boolean`|-|-|
+|type|Type of alert.|`string`|primary/success/warning/danger|-|
+|closeBtn|Show close button.|`boolean`|-|-|
+|animation|Fade out animation.|`boolean`|-|`true`|
+|duration|Animation duration in milliseconds.|`number`|-|`150`|
+|content|Transferred content|`string`|-|-|
+|el|Element to mount alert (programmatic)|`string`|-|-|

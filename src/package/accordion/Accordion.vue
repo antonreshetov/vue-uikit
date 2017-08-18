@@ -1,9 +1,24 @@
-<template></template>
+<template>
+    <ul uk-accordion
+        :collapsible="collapsible"
+        :multiple="multiple">
+        <slot></slot>
+    </ul>
+</template>
 <script>
 export default {
     name: 'VuAccordion',
 
-    props: {},
+    props: {
+        collapsible: {
+            type: Boolean,
+            default: false
+        },
+        multiple: {
+            type: Boolean,
+            default: false
+        }
+    },
 
     data () {
         return {}

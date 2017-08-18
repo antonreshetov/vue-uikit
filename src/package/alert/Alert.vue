@@ -1,5 +1,8 @@
 <template>
-    <div uk-alert :class="currentClass">
+    <div uk-alert
+        :class="currentClass"
+        :animation="animation"
+        :duration="computedDuration">
         <a v-if="closeBtn" class="uk-alert-close" uk-close @click="close"></a>
         <slot>{{content}}</slot>
     </div>
@@ -43,6 +46,16 @@ export default {
         this.checkType()
     },
 
+    beforeMount () {
+        if (this.programmatic) document.querySelector(this.el).appendChild(this.$el)
+    },
+
+    computed: {
+        computedDuration () {
+            return this.animation ? this.duration : 0
+        }
+    },
+
     methods: {
         checkType () {
             Object.keys(this.acceptedClass).forEach(key => {
@@ -56,10 +69,6 @@ export default {
                 this.$emit('close')
             }, this.duration)
         }
-    },
-
-    beforeMount () {
-        if (this.programmatic) document.querySelector(this.el).appendChild(this.$el)
     }
 }
 </script>

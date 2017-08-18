@@ -1,9 +1,11 @@
 import VuAccordion from './package/accordion/Accordion.vue'
+import VuAccordionItem from './package/accordion/Item.vue'
 import VuAlert from './package/alert/Alert.vue'
 import VuAlertFn from './package/alert/alert'
 
 const components = [
     VuAccordion,
+    VuAccordionItem,
     VuAlert
 ]
 

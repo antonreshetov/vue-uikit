@@ -67,3 +67,8 @@ vm.$alert.open(params)
 |duration|Animation duration in milliseconds.|`number`|-|`150`|
 |content|Transferred content|`string`|-|-|
 |el|Element to mount alert (programmatic)|`string`|-|-|
+
+## Events
+|Event name|Description|Parameters|
+|---|---|---|
+|close|Fires when alert is closed.|-|

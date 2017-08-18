@@ -102,9 +102,4 @@ export default {
     overflow: auto;
     border-right: 1px solid #ccc;
 }
-
-.content {
-    margin-top: 80px;
-    max-width: 650px;
-}
 </style>

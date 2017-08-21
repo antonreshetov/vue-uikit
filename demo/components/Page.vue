@@ -53,19 +53,25 @@ export default {
 
     methods: {
         buildPage () {
-            axios.get(`../docs/${this.$route.params.page}.md`).then(res => {
-                let html
-                let vms
-                ;[html, vms] = parse(res.data)
+            if (this.$route.meta === 'docs') {
+                axios.get(`../docs/${this.$route.params.page}.md`).then(res => {
+                    let html
+                    let vms
+                        ;[html, vms] = parse(res.data)
 
-                document.getElementById('html').innerHTML = html
-                for (let i = 0; i < vms.length; i++) {
-                    document.getElementById(`demo-${i}`).appendChild(vms[i].$el)
-                }
-                document.querySelectorAll('pre code').forEach(block => {
-                    hljs.highlightBlock(block)
+                    document.getElementById('html').innerHTML = html
+                    for (let i = 0; i < vms.length; i++) {
+                        document.getElementById(`demo-${i}`).appendChild(vms[i].$el)
+                    }
+                    document.querySelectorAll('pre code').forEach(block => {
+                        hljs.highlightBlock(block)
+                    })
                 })
-            })
+            } else {
+                axios.get('/CHANGELOG.md').then(res => {
+                    document.getElementById('html').innerHTML = parse(res.data)
+                })
+            }
         }
     }
 }

@@ -15,8 +15,14 @@ const router = new VueRouter({
             component: Welcome
         },
         {
-            path: '/:page',
-            component: Page
+            path: '/components/:page',
+            component: Page,
+            meta: 'docs'
+        },
+        {
+            path: '/changelog',
+            component: Page,
+            meta: 'page'
         }
     ]
 })

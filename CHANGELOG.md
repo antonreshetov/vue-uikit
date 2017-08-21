@@ -6,4 +6,3 @@
 - Added demo page
 - Added docs
 - First component - Alert
-

@@ -1,5 +1,8 @@
 {
+    "Getting Started": {
+        "Changelog": "/changelog"
+    },
     "Components": {
-        "Alert": "alert"
+        "Alert": "/components/alert"
     }
 }

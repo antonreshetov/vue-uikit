@@ -10,7 +10,12 @@ const guid = () => {
 }
 // Inspired by https://github.com/uikit/uikit-site
 const sluggify = (text) => {
-    return text.toLowerCase().trim().replace(/(&amp;| & )/g, '-and-').replace(/&(.+?);/g, '').replace(/[\s\W-]+/g, '-')
+    return text.toLowerCase().trim()
+        .replace(/:.*:/g, '')
+        .replace(/ +$/g, '')
+        .replace(/(&amp;| & )/g, '-and-')
+        .replace(/&(.+?);/g, '')
+        .replace(/[\s\W-]+/g, '-')
 }
 export function parse (markdown, cb) {
     const renderer = new marked.Renderer({ langPrefix: 'lang-' })

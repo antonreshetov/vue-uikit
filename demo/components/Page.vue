@@ -9,6 +9,14 @@
         </div>
         <div class="sidebar">
              <ul class="uk-nav uk-nav-default">
+                <li class="uk-nav-header">Getting Started</li>
+                <router-link
+                    v-for="item in gettingStarted"
+                    :to="item.page"
+                    :key="item.page"
+                    tag="li">
+                    <a>{{item.name}}</a>
+                </router-link>
                 <li class="uk-nav-header">Components</li>
                 <router-link
                     v-for="item in components"
@@ -35,10 +43,18 @@ const components = Object.keys(navigation['Components']).map(component => {
     }
 })
 
+const gettingStarted = Object.keys(navigation['Getting Started']).map(item => {
+    return {
+        name: item,
+        page: navigation['Getting Started'][item]
+    }
+})
+
 export default {
     data () {
         return {
-            components
+            components,
+            gettingStarted
         }
     },
     created () {

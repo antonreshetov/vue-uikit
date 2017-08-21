@@ -85,7 +85,7 @@ export default {
                 })
             } else {
                 axios.get('/CHANGELOG.md').then(res => {
-                    document.getElementById('html').innerHTML = parse(res.data)
+                    document.getElementById('html').innerHTML = parse(res.data)[0]
                 })
             }
         }

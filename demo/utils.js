@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueUIkit from '../src/index'
 import { escape } from 'he'
 import marked from 'marked'
+import emoji from 'node-emoji'
 
 Vue.use(VueUIkit)
 
@@ -20,6 +21,7 @@ const sluggify = (text) => {
 export function parse (markdown, cb) {
     const renderer = new marked.Renderer({ langPrefix: 'lang-' })
     const base = new marked.Renderer({ langPrefix: 'lang-' })
+    const replacer = (match) => emoji.emojify(match)
     const vms = []
     let vm
 
@@ -56,6 +58,8 @@ export function parse (markdown, cb) {
     renderer.hr = () => `<hr class="uk-margin-large">`
     renderer.table = (header, body) => `<div class="uk-overflow-auto"><table class="uk-table uk-table-divider"><thead>${header}</thead><tbody>${body}</tbody></table></div>`
     renderer.heading = (text, level) => `<h${level} id="${sluggify(text)}" class="tm-heading-fragment"><a href="#${sluggify(text)}">${text}</a></h${level}>`
+
+    markdown = markdown.replace(/(:.*:)/g, replacer)
 
     return [marked(markdown, { renderer }), vms]
 }

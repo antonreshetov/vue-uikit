@@ -3,7 +3,7 @@
         "Changelog": "/changelog"
     },
     "Components": {
-        "Accordion": "accordion",
-        "Alert": "alert"
+        "Accordion": "/components/accordion",
+        "Alert": "/components/alert"
     }
 }

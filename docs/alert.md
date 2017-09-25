@@ -43,7 +43,7 @@ vm.$alert.open(params)
 ```example
 <template>
     <button class="uk-button uk-button-default"
-        @click="$alert.open({content: 'New alert', closeBtn: true, el: '#alert-mount'})">Add alert
+        @click="openModal">Add alert
     </button>
     <br><br>
     <div id="alert-mount"></div>
@@ -52,6 +52,16 @@ vm.$alert.open(params)
     export default {
         data () {
             return {}
+        },
+
+        methods: {
+            openModal () {
+                this.$alert.open({
+                   content: 'New alert',
+                   closeBtn: true,
+                   el: '#alert-mount'
+                })
+            }
         }
     }
 </script>

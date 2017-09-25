@@ -8,6 +8,9 @@ RewriteRule . index.html [L]`
 
 fs.copy('./docs', './dist/docs')
     .then(() => {
+        fs.copy('./CHANGELOG.md', './dist/CHANGELOG.md')
+    })
+    .then(() => {
         fs.writeFile('./dist/.htaccess', htaccess)
             .then(() => console.log(colors.green('\nFiles copy success')))
             .catch(err => console.error(err))

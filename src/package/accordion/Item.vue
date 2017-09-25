@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li :class="{'uk-open': open }">
         <h3 class="uk-accordion-title">{{title}}</h3>
         <div class="uk-accordion-content"><slot></slot></div>
     </li>
@@ -9,7 +9,11 @@ export default {
     name: 'VuAccordionItem',
 
     props: {
-        title: String
+        title: String,
+        open: {
+            type: Boolean,
+            default: false
+        }
     },
 
     data () {

@@ -30,7 +30,7 @@ export default {
             default: 'ease'
         },
         duration: {
-            type: [String, Number],
+            type: Number,
             default: 200
         }
     },

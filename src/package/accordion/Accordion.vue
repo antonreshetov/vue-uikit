@@ -1,7 +1,10 @@
 <template>
     <ul uk-accordion
         :collapsible="collapsible"
-        :multiple="multiple">
+        :multiple="multiple"
+        :animation="animation"
+        :transition="transition"
+        :duration="duration">
         <slot></slot>
     </ul>
 </template>
@@ -17,6 +20,18 @@ export default {
         multiple: {
             type: Boolean,
             default: false
+        },
+        animation: {
+            type: Boolean,
+            default: true
+        },
+        transition: {
+            type: String,
+            default: 'ease'
+        },
+        duration: {
+            type: [String, Number],
+            default: 200
         }
     },
 

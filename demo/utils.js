@@ -29,13 +29,17 @@ export function parse (markdown, cb) {
     const example = code => {
         const id = guid()
         let template = code.match(/<template>(.|\n)*<\/template>/g)
-        let data = code.match(/return\s+([^\}]+.)/)[1].replace(/(\w+[0-9]?)(?=:)/, '"$1"')
-        if (data) data = JSON.parse(data)
+        let params = code.match(/export default\s+((.|\s)+(?=<\/script>))/)
 
-        vm = new Vue({
-            template: `<div>${template}</div>`,
-            data
-        }).$mount()
+        let defaultParams = {
+            template: `<div>${template}</div>`
+        }
+
+        /* eslint-disable no-eval */
+        params = eval(`params = ${params[1]}`)
+        params = Object.assign(defaultParams, params)
+
+        vm = new Vue(params).$mount()
 
         vms.push(vm)
 

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueUIkit from '../src/index'
 import { escape } from 'he'
 import marked from 'marked'
+import emoji from 'node-emoji'
 
 Vue.use(VueUIkit)
 
@@ -10,11 +11,17 @@ const guid = () => {
 }
 // Inspired by https://github.com/uikit/uikit-site
 const sluggify = (text) => {
-    return text.toLowerCase().trim().replace(/(&amp;| & )/g, '-and-').replace(/&(.+?);/g, '').replace(/[\s\W-]+/g, '-')
+    return text.toLowerCase().trim()
+        .replace(/:.*:/g, '')
+        .replace(/ +$/g, '')
+        .replace(/(&amp;| & )/g, '-and-')
+        .replace(/&(.+?);/g, '')
+        .replace(/[\s\W-]+/g, '-')
 }
 export function parse (markdown, cb) {
     const renderer = new marked.Renderer({ langPrefix: 'lang-' })
     const base = new marked.Renderer({ langPrefix: 'lang-' })
+    const replacer = (match) => emoji.emojify(match)
     const vms = []
     let vm
 
@@ -22,13 +29,17 @@ export function parse (markdown, cb) {
     const example = code => {
         const id = guid()
         let template = code.match(/<template>(.|\n)*<\/template>/g)
-        let data = code.match(/return\s+([^\}]+.)/)[1].replace(/(\w+[0-9]?)(?=:)/, '"$1"')
-        if (data) data = JSON.parse(data)
+        let params = code.match(/export default\s+((.|\s)+(?=<\/script>))/)
 
-        vm = new Vue({
-            template: `<div>${template}</div>`,
-            data
-        }).$mount()
+        let defaultParams = {
+            template: `<div>${template}</div>`
+        }
+
+        /* eslint-disable no-eval */
+        params = eval(`params = ${params[1]}`)
+        params = Object.assign(defaultParams, params)
+
+        vm = new Vue(params).$mount()
 
         vms.push(vm)
 
@@ -51,6 +62,8 @@ export function parse (markdown, cb) {
     renderer.hr = () => `<hr class="uk-margin-large">`
     renderer.table = (header, body) => `<div class="uk-overflow-auto"><table class="uk-table uk-table-divider"><thead>${header}</thead><tbody>${body}</tbody></table></div>`
     renderer.heading = (text, level) => `<h${level} id="${sluggify(text)}" class="tm-heading-fragment"><a href="#${sluggify(text)}">${text}</a></h${level}>`
+
+    markdown = markdown.replace(/(:.*:)/g, replacer)
 
     return [marked(markdown, { renderer }), vms]
 }

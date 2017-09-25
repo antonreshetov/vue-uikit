@@ -1,4 +1,7 @@
 {
+    "Getting Started": {
+        "Changelog": "/changelog"
+    },
     "Components": {
         "Accordion": "accordion",
         "Alert": "alert"

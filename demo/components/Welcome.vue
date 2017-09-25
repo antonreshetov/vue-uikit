@@ -6,7 +6,7 @@
                     <span class="uk-label version">pre-alpha {{version}}</span>
                 </div>
                 <div class="desc">A collection of Vue components<br>built on top of the <a href="https://getuikit.com/">UIkit framework</a></div>
-                <router-link to="/alert" class="pill white">Get started</router-link>
+                <router-link to="components/alert" class="pill white">Get started</router-link>
                 <a href="https://github.com/antonreshetov/vue-uikit" class="pill">GitHub</a>
             </div>
         </div>

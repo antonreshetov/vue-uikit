@@ -1,14 +1,19 @@
 <template>
-    <button
+    <d-tag
+        :tag="tag"
         :class="['uk-button', currentClass]">
         <slot></slot>
-    </button>
+    </d-tag>
 </template>
 <script>
 export default {
     name: 'VuButton',
 
     props: {
+        tag: {
+            type: String,
+            default: 'button'
+        },
         type: {
             type: String,
             default: 'default'

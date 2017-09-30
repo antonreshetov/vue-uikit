@@ -4,6 +4,7 @@
     },
     "Components": {
         "Accordion": "/components/accordion",
-        "Alert": "/components/alert"
+        "Alert": "/components/alert",
+        "Button": "/components/button"
     }
 }

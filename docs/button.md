@@ -97,7 +97,7 @@ Add the one of the UIKit width [classes](https://getuikit.com/docs/width) like `
         <p>
             <vu-button class="uk-width-1-4" type="danger">Danger</vu-button>
         </p>
-    <div>
+    </div>
 </template>
 <script>
     export default {

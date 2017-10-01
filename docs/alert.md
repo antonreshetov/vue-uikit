@@ -12,15 +12,17 @@ To render this component, add the tag and pass the necessary properties
 
 ```example
 <template>
-    <vu-alert :closeBtn="true" :animation="false">{{msg}}</vu-alert>
-    <vu-alert :closeBtn="true" :duration="500" type="primary">Primary</vu-alert>
-    <vu-alert :closeBtn="true" type="success">Success</vu-alert>
-    <vu-alert :closeBtn="true" type="warning">Warning</vu-alert>
-    <vu-alert :closeBtn="true" type="danger">Danger</vu-alert>
-    <vu-alert :closeBtn="true">
-        <div class="uk-text-lead">Title</div>
-        <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
-    </vu-alert>
+    <div>
+        <vu-alert :closeBtn="true" >{{msg}}</vu-alert>
+        <vu-alert :closeBtn="true" :duration="500" type="primary">Primary</vu-alert>
+        <vu-alert :closeBtn="true" type="success">Success</vu-alert>
+        <vu-alert :closeBtn="true" type="warning">Warning</vu-alert>
+        <vu-alert :closeBtn="true" type="danger">Danger</vu-alert>
+        <vu-alert :closeBtn="true">
+            <div class="uk-text-lead">Title</div>
+            <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+        </vu-alert>
+    </div>
 </template>
 <script>
     export default {
@@ -42,11 +44,13 @@ vm.$alert.open(params)
 
 ```example
 <template>
-    <button class="uk-button uk-button-default"
-        @click="openModal">Add alert
-    </button>
-    <br><br>
-    <div id="alert-mount"></div>
+    <div>
+        <button class="uk-button uk-button-default"
+            @click="openModal">Add alert
+        </button>
+        <br><br>
+        <div id="alert-mount"></div>
+    </div>
 </template>
 <script>
     export default {

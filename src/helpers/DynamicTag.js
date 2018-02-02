@@ -1,17 +1,14 @@
 export default {
-    name: 'DTag',
+  name: 'DTag',
 
-    render (createElement) {
-        return createElement(
-            this.tag,
-            this.$slots.default
-        )
-    },
+  render (createElement) {
+    return createElement(this.tag, this.$slots.default)
+  },
 
-    props: {
-        tag: {
-            type: String,
-            require: true
-        }
+  props: {
+    tag: {
+      type: String,
+      require: true
     }
+  }
 }

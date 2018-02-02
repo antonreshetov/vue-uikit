@@ -5,21 +5,15 @@ import VuAlertFn from './package/alert/alert'
 import VuButton from './package/button/Button.vue'
 import DTag from './helpers/DynamicTag'
 
-const components = [
-    VuAccordion,
-    VuAccordionItem,
-    VuAlert,
-    VuButton,
-    DTag
-]
+const components = [VuAccordion, VuAccordionItem, VuAlert, VuButton, DTag]
 
 const VueUIkit = {
-    install (Vue, options) {
-        components.map(component => {
-            Vue.component(component.name, component)
-        })
+  install (Vue, options) {
+    components.map(component => {
+      Vue.component(component.name, component)
+    })
 
-        Vue.prototype.$alert = VuAlertFn
-    }
+    Vue.prototype.$alert = VuAlertFn
+  }
 }
 export default VueUIkit

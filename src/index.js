@@ -3,9 +3,17 @@ import VuAccordionItem from './package/accordion/Item.vue'
 import VuAlert from './package/alert/Alert.vue'
 import VuAlertFn from './package/alert/alert'
 import VuButton from './package/button/Button.vue'
+import VuDrop from './package/drop/Drop.vue'
 import DTag from './helpers/DynamicTag'
 
-const components = [VuAccordion, VuAccordionItem, VuAlert, VuButton, DTag]
+const components = [
+  VuAccordion,
+  VuAccordionItem,
+  VuAlert,
+  VuButton,
+  VuDrop,
+  DTag
+]
 
 const VueUIkit = {
   install (Vue, options) {

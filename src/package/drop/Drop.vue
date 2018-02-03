@@ -30,7 +30,7 @@ export default {
 
   methods: {
     /**
-     * Initializations
+     * Initialization
      */
     init () {
       // To simplify the connection via the this.target property

@@ -42,19 +42,31 @@ export default {
   },
 
   beforeMount () {
+    /**
+     * Adding component in DOM
+     */
     if (this.programmatic) document.querySelector(this.el).appendChild(this.$el)
   },
 
   computed: {
+    /**
+     * Computed duration
+     */
     computedDuration () {
       return this.animation ? this.duration : 0
     },
+    /**
+     * Type checking and return the appropriate class
+     */
     currentClass () {
       return this.acceptedClass[Object.keys(this.acceptedClass).find(key => key === this.type)]
     }
   },
 
   methods: {
+    /**
+     * Close alert after timeout duration of the animation
+     */
     close () {
       setTimeout(() => {
         this.$destroy()

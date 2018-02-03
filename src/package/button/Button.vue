@@ -35,9 +35,15 @@ export default {
   },
 
   computed: {
+    /**
+     * Type checking and return the appropriate class
+     */
     currentClass () {
       return this.acceptedClass[Object.keys(this.acceptedClass).find(key => key === this.type)]
     },
+    /**
+     * Size checking and return the appropriate class
+     */
     currentSize () {
       if (this.size === 'small') return 'uk-button-small'
       if (this.size === 'large') return 'uk-button-large'

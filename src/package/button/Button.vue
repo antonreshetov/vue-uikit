@@ -1,7 +1,7 @@
 <template>
   <d-tag
     :tag="tag"
-    :class="['uk-button', currentClass, checkSize()]">
+    :class="['uk-button', currentClass, currentSize]">
     <slot></slot>
   </d-tag>
 </template>
@@ -23,7 +23,6 @@ export default {
 
   data () {
     return {
-      currentClass: '',
       acceptedClass: {
         default: 'uk-button-default',
         primary: 'uk-button-primary',
@@ -35,17 +34,11 @@ export default {
     }
   },
 
-  created () {
-    this.checkType()
-  },
-
-  methods: {
-    checkType () {
-      Object.keys(this.acceptedClass).forEach(key => {
-        if (key === this.type) this.currentClass = this.acceptedClass[key]
-      })
+  computed: {
+    currentClass () {
+      return this.acceptedClass[Object.keys(this.acceptedClass).find(key => key === this.type)]
     },
-    checkSize () {
+    currentSize () {
       if (this.size === 'small') return 'uk-button-small'
       if (this.size === 'large') return 'uk-button-large'
     }

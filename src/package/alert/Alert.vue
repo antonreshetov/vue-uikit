@@ -1,5 +1,6 @@
 <template>
   <div uk-alert
+    :id="id"
     :class="currentClass"
     :animation="animation"
     :duration="computedDuration">
@@ -8,10 +9,15 @@
   </div>
 </template>
 <script>
+import mixins from '../mixins'
+
 export default {
   name: 'VuAlert',
 
+  mixins: [mixins],
+
   props: {
+    id: String,
     closeBtn: Boolean,
     type: String,
     el: String,
@@ -48,6 +54,10 @@ export default {
     if (this.programmatic) document.querySelector(this.el).appendChild(this.$el)
   },
 
+  mounted () {
+    this.eventsConnection()
+  },
+
   computed: {
     /**
      * Computed duration
@@ -71,8 +81,17 @@ export default {
       setTimeout(() => {
         this.$destroy()
         this.$el.remove()
-        this.$emit('close')
       }, this.duration)
+    },
+    /**
+     * Connection uikit event with vue
+     */
+    eventsConnection () {
+      const events = [
+        'beforehide',
+        'hide'
+      ]
+      this.eventsConnector(`#${this.id}`, events)
     }
   }
 }

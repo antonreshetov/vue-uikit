@@ -10,7 +10,7 @@ Vue.use(VueUIkit)
 
 /* eslint-disable no-new */
 new Vue({
-    el: '#examples',
-    router,
-    render: h => h(Index)
+  el: '#examples',
+  router,
+  render: h => h(Index)
 })

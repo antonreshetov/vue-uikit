@@ -1,10 +1,10 @@
 {
-    "Getting Started": {
-        "Changelog": "/changelog"
-    },
-    "Components": {
-        "Accordion": "/components/accordion",
-        "Alert": "/components/alert",
-        "Button": "/components/button"
-    }
+  "Getting Started": {
+    "Changelog": "/changelog"
+  },
+  "Components": {
+    "Accordion": "/components/accordion",
+    "Alert": "/components/alert",
+    "Button": "/components/button"
+  }
 }

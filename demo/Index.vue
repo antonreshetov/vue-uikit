@@ -2,6 +2,5 @@
   <router-view></router-view>
 </template>
 <style lang="scss">
-@import "./styles/main"
+@import './styles/main';
 </style>
-

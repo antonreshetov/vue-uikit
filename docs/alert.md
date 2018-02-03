@@ -85,6 +85,7 @@ export default {
 
 ## Events
 
-| Event name | Description                 | Parameters |
-| ---------- | --------------------------- | ---------- |
-| close      | Fires when alert is closed. | -          |
+| Event name | Description                     | Parameters |
+| ---------- | ------------------------------- | ---------- |
+| beforehide | Fires before an item is hidden. | -          |
+| hide       | Fires after an item is hidden.  | -          |

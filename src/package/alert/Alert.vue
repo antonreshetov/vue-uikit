@@ -32,7 +32,6 @@ export default {
 
   data () {
     return {
-      currentClass: '',
       acceptedClass: {
         primary: 'uk-alert-primary',
         success: 'uk-alert-success',
@@ -42,10 +41,6 @@ export default {
     }
   },
 
-  created () {
-    this.checkType()
-  },
-
   beforeMount () {
     if (this.programmatic) document.querySelector(this.el).appendChild(this.$el)
   },
@@ -53,15 +48,13 @@ export default {
   computed: {
     computedDuration () {
       return this.animation ? this.duration : 0
+    },
+    currentClass () {
+      return this.acceptedClass[Object.keys(this.acceptedClass).find(key => key === this.type)]
     }
   },
 
   methods: {
-    checkType () {
-      Object.keys(this.acceptedClass).forEach(key => {
-        if (key === this.type) this.currentClass = this.acceptedClass[key]
-      })
-    },
     close () {
       setTimeout(() => {
         this.$destroy()

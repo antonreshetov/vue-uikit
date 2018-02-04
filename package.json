@@ -5,11 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
-    "prod": "npm run clear && npm run copy && cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "prod": "npm run clear && npm run copy && cross-env NODE_ENV=production webpack --progress --hide-modules && npm run analytics",
     "lint": "eslint src build examples",
     "lint:fix": "eslint src build components --fix",
     "make": "node ./build/makeComponent.js",
     "copy": "node ./build/copy.js",
+    "analytics": "node ./build/addAnalytics.js",
     "clear": "rimraf ./dist"
   },
   "repository": {

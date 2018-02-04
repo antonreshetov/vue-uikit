@@ -5,6 +5,7 @@
   "Components": {
     "Accordion": "/components/accordion",
     "Alert": "/components/alert",
-    "Button": "/components/button"
+    "Button": "/components/button",
+    "Drop": "/components/drop"
   }
 }

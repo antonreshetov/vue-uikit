@@ -1,6 +1,6 @@
 {
   "name": "vue-uikit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of Vue components built on top of the UIkit framework",
   "main": "src/index.js",
   "scripts": {

@@ -12,16 +12,16 @@
         <li class="uk-nav-header">Getting Started</li>
         <router-link
           v-for="item in gettingStarted"
-          :to="item.page"
-          :key="item.page"
+          :to="item.path"
+          :key="item.path"
           tag="li">
           <a>{{item.name}}</a>
         </router-link>
         <li class="uk-nav-header">Components</li>
         <router-link
           v-for="item in components"
-          :to="item.page"
-          :key="item.page"
+          :to="item.path"
+          :key="item.path"
           tag="li">
           <a>{{item.name}}</a>
         </router-link>
@@ -36,19 +36,8 @@
 import { parse } from '../utils'
 import navigation from '../navigation.json'
 
-const components = Object.keys(navigation['Components']).map(component => {
-  return {
-    name: component,
-    page: navigation['Components'][component]
-  }
-})
-
-const gettingStarted = Object.keys(navigation['Getting Started']).map(item => {
-  return {
-    name: item,
-    page: navigation['Getting Started'][item]
-  }
-})
+const components = navigation.Components
+const gettingStarted = navigation['Getting Started']
 
 export default {
   data () {
@@ -57,6 +46,7 @@ export default {
       gettingStarted
     }
   },
+
   created () {
     this.buildPage()
   },

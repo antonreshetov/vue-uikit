@@ -1,11 +1,26 @@
 {
-  "Getting Started": {
-    "Changelog": "/changelog"
-  },
-  "Components": {
-    "Accordion": "/components/accordion",
-    "Alert": "/components/alert",
-    "Button": "/components/button",
-    "Drop": "/components/drop"
-  }
+  "Getting Started": [
+    {
+      "name": "Changelog",
+      "path": "/changelog"
+    }
+  ],
+  "Components": [
+    {
+      "name": "Accordion",
+      "path": "/components/accordion"
+    },
+    {
+      "name": "Alert",
+      "path": "/components/alert"
+    },
+    {
+      "name": "Button",
+      "path": "/components/button"
+    },
+    {
+      "name": "Drop",
+      "path": "/components/drop"
+    }
+  ]
 }
